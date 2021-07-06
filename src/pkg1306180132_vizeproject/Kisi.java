@@ -11,26 +11,19 @@ package pkg1306180132_vizeproject;
  *
  * @author moayy
  */
- abstract class Kisi 
+ public abstract class Kisi implements changePassword
 {
     String Ad; 
     String Soyad; 
     String Eposta ; 
-    String Adres; 
-    double Sifre;
-
-    public Kisi(String Ad, String Soyad , String Eposta, String Adres,double Sifre)
+    String Sifre;
+public Kisi(){}
+    public Kisi(String Ad, String Soyad , String Eposta,String Sifre)
     {
         this.Ad=Ad; 
         this.Soyad=Soyad; 
         this.Eposta=Eposta; 
-        this.Adres=Adres; 
         this.Sifre=Sifre; 
     }
     
-    abstract void sifre_degistir(double str);
-    
-    abstract boolean Login(String ad , double sifre); 
-    
-   
-}
+ }

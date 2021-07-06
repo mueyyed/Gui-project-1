@@ -1,27 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pkg1306180132_vizeproject;
 
-/**
- *
- * @author moayy
- */
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Scanner;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+ 
 public class Main {
-
-    // bu fonksiyon polimorfizm konseptini uygulamak amaciyla olusturuyor
-   static void kisiTipi(Kisi obj)
-   {
-       if(obj instanceof Yonticisi){}  
-       if(obj instanceof Personel){}  
-       if(obj instanceof Yonticisi){}  
-   }  
-
-    public static void main(String[] args) {
-        // TODO code application logic here
-         GUI ob=new GUI(); 
+    public static void main(String[] args) throws Exception {
+        
+        // Name: MUEYYED GARZUDDIN
+        // No  : 1306180132
+        
+      WhoAreYou b=new WhoAreYou();
     }
-    
+
 }

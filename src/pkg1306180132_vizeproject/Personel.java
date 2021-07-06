@@ -1,5 +1,7 @@
 package pkg1306180132_vizeproject;
 
+import static java.lang.Double.parseDouble;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,43 +13,31 @@ package pkg1306180132_vizeproject;
  *
  * @author moayy
  */
-public class Personel extends Kisi {
+public class Personel extends Kisi implements additionPersonel {
 
-    public Personel(String Ad, String Soyad, String Eposta, String Adres, double Sifre) {
-        super(Ad, Soyad, Eposta, Adres, Sifre);
+    Personel(){}
+    public Personel(String Ad, String Soyad, String Eposta, String Sifre) {
+        super(Ad, Soyad, Eposta,Sifre);
     }
+    
+        public static Personel parse(String s)
+        {
+        String[] c = s.split(":");
+        Personel m = new Personel(c[0],c[1],c[2],c[3]);
+        return m;
+        }
+        
+    @Override
+        public Personel addPersonel(String Ad,String Soyad,String Eposta,String Sifre) 
+        {
+        Personel m = new Personel(Ad,Soyad,Eposta,Sifre);
+        return m;
+        }
 
-    
-    boolean kredikartLimitGuncelleme(double newBakiye , double oldBakiye)
-    {
-        if(newBakiye >oldBakiye+1000)
-        {
-            return true; 
-           // return newBakiye + newBakiye*(0.01);
-        }
-        return false; 
+    @Override
+    public String toStringData() {
+         return Ad+":"+Soyad+":"+Eposta+":"+Sifre; 
     }
-    
-    boolean kredikartOnayVerme(double bakiye)
-    {
-        if(bakiye >2000)
-        {
-            return true; 
-        }
-        return false; 
-    }
-    
-      @Override
-    void sifre_degistir(double str) {
-       this.Sifre=str; 
-    }
-
-    public boolean Login(String ad , double sifre) {
-        if(this.Ad==ad && this.Sifre==sifre)
-        {
-            return true; 
-        }
-        return false; 
-    }
-    
+ 
+ 
 }

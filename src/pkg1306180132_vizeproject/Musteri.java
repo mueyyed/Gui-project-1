@@ -1,5 +1,8 @@
 package pkg1306180132_vizeproject;
 
+import static java.lang.Double.parseDouble;
+import static pkg1306180132_vizeproject.Database.veriMusteri;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,32 +14,40 @@ package pkg1306180132_vizeproject;
  *
  * @author moayy
  */
-public class Musteri extends Kisi 
+public class Musteri extends Kisi implements additionMusteri
 {
-    double bakiye; 
-
-    public Musteri(String Ad, String Soyad, String Eposta, String Adres, double Sifre, double adder) {
-        super(Ad, Soyad, Eposta, Adres, Sifre);
+    String bakiye; 
+    Musteri(){
+    }
+    public Musteri(String Ad, String Soyad, String Eposta, String Sifre, String bakiye) {
+        super(Ad, Soyad, Eposta, Sifre);
+        this.setBakiye(bakiye);
     }
     
-    double bakiyeOgrenme(){return bakiye;}
-    double bakiyeArttirme(double miktar)
-    {
-        bakiye+=miktar; 
-        return bakiye;
+    
+    public static Musteri parse(String s) {
+        String[] str = s.split(":");
+        Musteri m = new Musteri(str[0],str[1],str[2],str[3],str[4]);
+        return m;
+    }
+    @Override
+     public Musteri addMusteri(String Ad,String Soyad,String Eposta,String Sifre) 
+        {
+        Musteri m = new Musteri(Ad,Soyad,Eposta,Sifre,"0");
+        return m;
+        }
+    
+ 
+    public void setBakiye(String bakiye) {
+        this.bakiye = bakiye;
     }
 
     @Override
-    void sifre_degistir(double str) {
-       this.Sifre=str; 
+    public String toStringData() {
+        return Ad+":"+Soyad+":"+Eposta+":"+Sifre+":"+bakiye ; 
     }
 
-    public boolean Login(String ad , double sifre) {
-        if(this.Ad==ad && this.Sifre==sifre)
-        {
-            return true; 
-        }
-        return false; 
-    }
+    
+ 
  
 }
